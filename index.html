@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<title>Life game.</title>
+</head>
+<body>
+	<main>
+		<div id="main">
+			<div class="information">
+				<div>
+					第<span id="generation-span"></span>世代
+				</div>
+				<div>
+					人口:<span id="population-span"></span>
+				</div>
+				<label>
+					行数:<input id="rows-input" type="number" min="1" max="300">
+				</label>
+				<label>
+					列数:<input id="columns-input" type="number" min="1" max="300">
+				</label>
+			</div>
+			<div class="information">
+				<label>
+					マスの大きさ:<input id="square-size-input" type="number" min="1" max="50">
+				</label>
+				<label>
+					マス目の表示:<input id="border-visiblity" type="checkbox" checked>
+				</label>
+				<label>
+					隣接数の表示:<input id="neighbour-visiblity" type="checkbox">
+				</label>
+			</div>
+			<div class="information">
+				<button id="reset-button" type="button"></button>
+				<button id="play-button" type="button"></button>
+				<div class="flex-padding"></div>
+				<button id="shift-left-button" type="button"></button>
+				<button id="shift-up-button" type="button"></button>
+				<button id="shift-down-button" type="button"></button>
+				<button id="shift-right-button" type="button"></button>
+				<div class="flex-padding"></div>
+				<button id="save-button" type="button">Save</button>
+			</div>
+			<div class="information">
+				<label id="interval-label" for="interval-input">
+					更新周期 [ms]:<input id="interval-radio" type="range" min="1" max="1000"><input id="interval-input" type="number" min="1" max="1000">
+				</label>
+			</div>
+			<div id="screen-wrapper">
+				<canvas id="screen"></canvas>
+			</div>
+		</div>
+		<div id="menu">
+			<h3>Save Data</h3>
+			<ul id="menu-items">
+			</ul>
+		</div>
+	</main>
+	<section id="save-dialog" hidden>
+		<p>
+			名前を付けて保存
+			<button id="close-save-dialog" type="button"></button>
+		</p>
+		<form name="insert-save-data" method="POST">
+			<div>名前:<input name="name" type="text"></div>
+			<div>行数:<input name="rows" type="number" min="1"></div>
+			<div>列数:<input name="columns" type="number" min="1"></div>
+			<div>データ:<input name="data" type="text"></div>
+			<button type="submit">保存</button>
+		</form>
+	</section>
+	<script type="application/javascript" src="PseudoPHP.js"></script>
+	<script type="application/javascript" src="Lifegame.js"></script>
+	<script type="application/javascript" src="script.js"></script>
+</body>
+</html>
