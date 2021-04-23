@@ -40,7 +40,7 @@
         }
     ];
 
-    function accessLifegameStore(mode) {
+    var accessLifegameStore = function (mode) {
         return new Promise((resolve, reject) => {
             const request = window.indexedDB.open('PseudoPHP.ISEII-Lifegame');
             request.onupgradeneeded = function (event) {
@@ -61,7 +61,7 @@
         });
     }
 
-    function getSaveData() {
+    var getSaveData = function () {
         return new Promise((resolve, reject) => {
             accessLifegameStore('readonly').then(transaction => {
                 /** @type {IDBObjectStore} */
@@ -86,7 +86,7 @@
     }
 
     /** @param formData {FormData} */
-    function insertSaveData(formData) {
+    var insertSaveData = function (formData) {
         return new Promise((resolve, reject) => {
             accessLifegameStore('readwrite').then(transaction => {
                 /** @type {IDBObjectStore} */
